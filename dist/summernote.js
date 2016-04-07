@@ -6,7 +6,7 @@
  * Copyright 2013-2015 Alan Hong. and other contributors
  * summernote may be freely distributed under the MIT license./
  *
- * Date: 2016-04-07T13:16Z
+ * Date: 2016-04-07T15:21Z
  */
 (function (factory) {
   /* global define */
@@ -3195,7 +3195,8 @@
     this.fromNode = function ($node) {
       var properties = ['font-family', 'font-size', 'text-align', 'list-style-type', 'line-height'];
       var styleInfo = jQueryCSS($node, properties) || {};
-      styleInfo['font-size'] = parseInt(styleInfo['font-size'], 10);
+      styleInfo['font-size'] = parseInt($node[0].style.fontSize, 10); // Get font size in pt, not in px
+                                                                      // (for PDF printing)
       return styleInfo;
     };
 

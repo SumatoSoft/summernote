@@ -44,7 +44,8 @@ define([
     this.fromNode = function ($node) {
       var properties = ['font-family', 'font-size', 'text-align', 'list-style-type', 'line-height'];
       var styleInfo = jQueryCSS($node, properties) || {};
-      styleInfo['font-size'] = parseInt(styleInfo['font-size'], 10);
+      styleInfo['font-size'] = parseInt($node[0].style.fontSize, 10); // Get font size in pt, not in px
+                                                                      // (for PDF printing)
       return styleInfo;
     };
 
