@@ -6,7 +6,7 @@
  * Copyright 2013-2015 Alan Hong. and other contributors
  * summernote may be freely distributed under the MIT license./
  *
- * Date: 2015-12-31T12:09Z
+ * Date: 2016-04-07T13:16Z
  */
 (function (factory) {
   /* global define */
@@ -4141,7 +4141,7 @@
         var firstSpan = list.head(spans);
 
         $(spans).css({
-          'font-size': value + 'px'
+          'font-size': value + 'pt'
         });
 
         // [workaround] added styled bogus span for style
@@ -4154,7 +4154,7 @@
       } else {
         beforeCommand();
         $(style.styleNodes(rng)).css({
-          'font-size': value + 'px'
+          'font-size': value + 'pt'
         });
         afterCommand();
       }
