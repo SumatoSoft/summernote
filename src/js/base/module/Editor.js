@@ -478,7 +478,7 @@ define([
         var firstSpan = list.head(spans);
 
         $(spans).css({
-          'font-size': value + 'px'
+          'font-size': value + 'pt'
         });
 
         // [workaround] added styled bogus span for style
@@ -491,7 +491,7 @@ define([
       } else {
         beforeCommand();
         $(style.styleNodes(rng)).css({
-          'font-size': value + 'px'
+          'font-size': value + 'pt'
         });
         afterCommand();
       }
