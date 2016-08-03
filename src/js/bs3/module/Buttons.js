@@ -58,7 +58,11 @@ define([
           className: 'note-btn-bold',
           contents: ui.icon(options.icons.bold),
           tooltip: lang.font.bold + representShortcut('bold'),
-          click: context.createInvokeHandler('editor.bold')
+          click: function(n, e) {
+            context.createInvokeHandler('editor.bold')(n, e);
+            var $editable = context.layoutInfo.editable;
+            context.triggerEvent('change', $editable.html());
+          }
         }).render();
       });
 
@@ -67,7 +71,11 @@ define([
           className: 'note-btn-italic',
           contents: ui.icon(options.icons.italic),
           tooltip: lang.font.italic + representShortcut('italic'),
-          click: context.createInvokeHandler('editor.italic')
+          click: function(n, e) {
+            context.createInvokeHandler('editor.italic')(n, e);
+            var $editable = context.layoutInfo.editable;
+            context.triggerEvent('change', $editable.html());
+          }
         }).render();
       });
 
@@ -229,6 +237,8 @@ define([
                   $currentButton.data('value', colorInfo);
 
                   context.invoke('editor.' + eventName, value);
+                  var $editable = context.layoutInfo.editable;
+                  context.triggerEvent('change', $editable.html());
                 }
               }
             })

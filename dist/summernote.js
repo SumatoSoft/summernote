@@ -6,7 +6,7 @@
  * Copyright 2013-2015 Alan Hong. and other contributors
  * summernote may be freely distributed under the MIT license./
  *
- * Date: 2016-04-07T15:21Z
+ * Date: 2016-08-03T18:19Z
  */
 (function (factory) {
   /* global define */
@@ -5068,7 +5068,11 @@
           className: 'note-btn-bold',
           contents: ui.icon(options.icons.bold),
           tooltip: lang.font.bold + representShortcut('bold'),
-          click: context.createInvokeHandler('editor.bold')
+          click: function(n, e) {
+            context.createInvokeHandler('editor.bold')(n, e);
+            var $editable = context.layoutInfo.editable;
+            context.triggerEvent('change', $editable.html());
+          }
         }).render();
       });
 
@@ -5077,7 +5081,11 @@
           className: 'note-btn-italic',
           contents: ui.icon(options.icons.italic),
           tooltip: lang.font.italic + representShortcut('italic'),
-          click: context.createInvokeHandler('editor.italic')
+          click: function(n, e) {
+            context.createInvokeHandler('editor.italic')(n, e);
+            var $editable = context.layoutInfo.editable;
+            context.triggerEvent('change', $editable.html());
+          }
         }).render();
       });
 
@@ -5239,6 +5247,8 @@
                   $currentButton.data('value', colorInfo);
 
                   context.invoke('editor.' + eventName, value);
+                  var $editable = context.layoutInfo.editable;
+                  context.triggerEvent('change', $editable.html());
                 }
               }
             })
