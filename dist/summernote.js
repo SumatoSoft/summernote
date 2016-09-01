@@ -6,7 +6,7 @@
  * Copyright 2013-2015 Alan Hong. and other contributors
  * summernote may be freely distributed under the MIT license./
  *
- * Date: 2016-08-23T16:47Z
+ * Date: 2016-09-01T22:07Z
  */
 (function (factory) {
   /* global define */
@@ -401,7 +401,6 @@
     browserVersion: browserVersion,
     jqueryVersion: parseFloat($.fn.jquery),
     isSupportAmd: isSupportAmd,
-    hasCodeMirror: isSupportAmd ? require.specified('codemirror') : !!window.CodeMirror,
     isFontInstalled: isFontInstalled,
     isW3CRangeSupport: !!document.createRange
   };
@@ -4601,17 +4600,6 @@
     };
   };
 
-
-  var CodeMirror;
-  if (agent.hasCodeMirror) {
-    if (agent.isSupportAmd) {
-      require(['codemirror'], function (cm) {
-        CodeMirror = cm;
-      });
-    } else {
-      CodeMirror = window.CodeMirror;
-    }
-  }
 
   /**
    * @class Codeview

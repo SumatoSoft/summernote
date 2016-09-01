@@ -3,17 +3,6 @@ define([
   'summernote/base/core/dom'
 ], function (agent, dom) {
 
-  var CodeMirror;
-  if (agent.hasCodeMirror) {
-    if (agent.isSupportAmd) {
-      require(['codemirror'], function (cm) {
-        CodeMirror = cm;
-      });
-    } else {
-      CodeMirror = window.CodeMirror;
-    }
-  }
-
   /**
    * @class Codeview
    */
