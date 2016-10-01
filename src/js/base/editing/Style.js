@@ -46,7 +46,7 @@ define([
       var styleInfo = jQueryCSS($node, properties) || {};
 
       if (styleInfo['font-size']) {
-        styleInfo['font-size'] = Math.floor(parseInt(styleInfo['font-size']) * 0.75) //Convert to pt
+        styleInfo['font-size'] = Math.round(parseFloat(styleInfo['font-size']) * 0.75) //Convert to pt
       }
 
       return styleInfo;

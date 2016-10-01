@@ -6,7 +6,7 @@
  * Copyright 2013-2015 Alan Hong. and other contributors
  * summernote may be freely distributed under the MIT license./
  *
- * Date: 2016-09-01T22:07Z
+ * Date: 2016-10-01T08:39Z
  */
 (function (factory) {
   /* global define */
@@ -3196,7 +3196,7 @@
       var styleInfo = jQueryCSS($node, properties) || {};
 
       if (styleInfo['font-size']) {
-        styleInfo['font-size'] = Math.floor(parseInt(styleInfo['font-size']) * 0.75) //Convert to pt
+        styleInfo['font-size'] = Math.round(parseFloat(styleInfo['font-size']) * 0.75) //Convert to pt
       }
 
       return styleInfo;
@@ -4142,7 +4142,6 @@
       if (rng && rng.isCollapsed()) {
         var spans = style.styleNodes(rng);
         var firstSpan = list.head(spans);
-
         $(spans).css({
           'font-size': value + 'pt'
         });
